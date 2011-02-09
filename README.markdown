@@ -15,4 +15,6 @@ Setup
 S3.HelloWorld should now be running at [http://localhost:9292](http://localhost:9292)
 
 
+Assuming you have everything up and running, try:
 
+[http://rollcall.proto.encorelab.org/login?destination=http://localhost:9292/hello1.html](http://rollcall.proto.encorelab.org/login?destination=http://localhost:9292/hello1.html)
