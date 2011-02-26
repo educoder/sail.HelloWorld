@@ -1,3 +1,3 @@
-[submodule "js/s3.js"]
-	path = js/s3.js
+[submodule "js/sail.js"]
+	path = js/sail.js
 	url = git@github.com:educoder/sail.js.git
