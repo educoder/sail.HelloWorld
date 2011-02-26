@@ -1,6 +1,6 @@
 $(document).ready(function(){ 
 
-  rollcall = new S3.Rollcall('http://rollcall.proto.encorelab.org')
+  rollcall = new Sail.Rollcall('http://rollcall.proto.encorelab.org')
   token = rollcall.getCurrentToken()
   rollcall.fetchSessionForToken(token, function(data) {
       console.log(data)
