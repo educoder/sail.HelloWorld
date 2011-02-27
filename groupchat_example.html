@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>S3 Groupchat Example</title>
+  <link href="css/hello.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <!--<script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.0.0-crypto-sha1.js"></script>-->
+  <script src="js/deps/md5.js" type="text/javascript"></script>
+  <script src="js/deps/base64.js" type="text/javascript"></script>
+  <script src="js/deps/strophe.js" type="text/javascript"></script>
+
+  <script src="js/deps/jquery-1.4.2.js" type="text/javascript"></script>
+  <script src="js/deps/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+
+  <script src="js/deps/jquery.url.js" type="text/javascript"></script>
+
+  <script src="js/sail.js/sail.rollcall.js" type="text/javascript"></script>
+  <script src="js/sail.js/sail.strophe.js" type="text/javascript"></script>
+
+  <script src="js/groupchat-example.js" type="text/javascript"></script>
+
+  <meta name="csrf-param" content="authenticity_token"/>
+</head>
+<body>
+
+<h1>Groupchat Example</h1>
+
+<form accept-charset="UTF-8" action="" id="question_form" method="get" name="question_form">
+	<div id="chatlog" style="border: 2px dotted #aaa; padding: 4px; margin: 4px"></div>
+	<textarea id="chatinput"></textarea>
+	<input type="button" value="send" id="send" />
+</form>
+
+</body>
+</html>
