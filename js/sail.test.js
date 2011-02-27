@@ -1,12 +1,16 @@
 $(document).ready(function(){ 
-
-  rollcall = new Sail.Rollcall('http://rollcall.proto.encorelab.org')
+  rollcall = new Sail.Rollcall.Client('http://rollcall.proto.encorelab.org')
   token = rollcall.getCurrentToken()
   rollcall.fetchSessionForToken(token, function(data) {
       console.log(data)
       console.log(data.session.user.username)
       console.log(data.session.user.encrypted_password)
   })
+  
+  Sail.Strophe.bosh_url = 'http://helloworld.s3.localhost/http-bind/'
+  Sail.Strophe.username = 'tester@proto.encorelab.org'
+  Sail.Strophe.password = 'foofoo'
+  Sail.Strophe.connect()
 })
 
 
