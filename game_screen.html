@@ -37,16 +37,18 @@
 			var ansId = 0
 
 		    groupchat.addHandler(function(msg) {
-				console.log(msg)
-				
+				if (!msg)
+					return
+				if (!$(msg))
+					return
+					
 				if ($(msg).attr('type') != 'groupchat')
 					return
 			
 				data = parseMsg(msg)
 				
-				if (!data) {
+				if (!data)
 					return
-				}
 				
 				if(data.type == 'definition') {
 		      		$('#dfn').html(data.content)
@@ -59,6 +61,14 @@
 					ans.css('top', Math.random()*600+'px')
 					ans.append('<span style="color: #369; font-size: 50%">'+who+'</span>')
 					ans.append('<span style="color: #963">'+data.content+'</span>')
+					setTimeout(function(){ans.hide('puff', {}, 5000, function() {$(this).remove()})}, 1000)
+				} else if (data.type == 'endgame') {
+					who = data.winner
+					$('#answers').append("<div style='position: absolute; font-weight: bold; font-size: 128px; background-color: #afa; text-align: center' id='ans-"+ansId+"'></div>")
+					ans = $('#ans-'+ansId)
+					ans.append('<span style="color: #369; font-size: 50%">WINNER</span><br />')
+					ans.append('<span style="color: #369; font-size: 50%">'+who+'</span><br />')
+					ans.append('<span style="color: #963">'+data.answer+'</span>')
 					setTimeout(function(){ans.hide('puff', {}, 5000, function() {$(this).remove()})}, 1000)
 				}
 		    })
