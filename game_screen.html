@@ -24,19 +24,37 @@
   <meta name="csrf-param" content="authenticity_token"/>
 </head>
 <body>
-	<div id="dfn" style="font-size: 32px; font-weight: bold; text-align: center">
+	<div id="dfn" style="font-size: 72px; font-weight: bold; text-align: center; margin-top: 10%">
 	</div>
+	
+	<div id="answers" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px"></div>
     
     <script type='text/javascript'>
         $(document).ready(function(){
           	Sail.Strophe.onConnectSuccess = function() {
-		    groupchat = Sail.Strophe.joinGroupchat('s3@conference.proto.encorelab.org')
+		    var groupchat = Sail.Strophe.joinGroupchat('s3@conference.proto.encorelab.org')
+
+			var ansId = 0
 
 		    groupchat.addHandler(function(msg) {
 				data = parseMsg(msg)
 				
+				if (!data) {
+					return
+				}
+				
 				if(data.type == 'definition') {
 		      		$('#dfn').html(data.content)
+				} else if (data.type == 'answer') {
+					who = $(msg).attr('from').split('/')[1].split('@')[0]
+					ansId += 1
+					$('#answers').append("<div style='position: absolute; font-weight: bold; font-size: 64px' id='ans-"+ansId+"'></div>")
+					ans = $('#ans-'+ansId)
+					ans.css('left', Math.random()*1000+'px')
+					ans.css('top', Math.random()*600+'px')
+					ans.append('<span style="color: #369; font-size: 50%">'+who+'</span>')
+					ans.append('<span style="color: #963">'+data.content+'</span>')
+					setTimeout(function(){ans.hide('puff', {}, 5000, function() {$(this).remove()})}, 1000)
 				}
 		    })
 
