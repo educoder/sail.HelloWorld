@@ -37,6 +37,11 @@
 			var ansId = 0
 
 		    groupchat.addHandler(function(msg) {
+				console.log(msg)
+				
+				if ($(msg).attr('type') != 'groupchat')
+					return
+			
 				data = parseMsg(msg)
 				
 				if (!data) {
