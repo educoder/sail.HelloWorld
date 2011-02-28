@@ -10,21 +10,4 @@ $(document).ready(function(){
 	  Sail.Strophe.connect()
 	
   })
-    
-  var groupchat
-  
-  Sail.Strophe.onConnectSuccess = function() {
-    groupchat = Sail.Strophe.joinGroupchat('s3@conference.proto.encorelab.org')
-    
-    groupchat.addHandler(function(msg) {
-      $('#chatlog').append($(msg).find('body').text()+"<br />")
-    })
-    
-    $('#send').click(function() {
-      text = $('#chatinput')
-      groupchat.sendText(text.val())
-      text.val("")
-    })
-  }
-
 })
