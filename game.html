@@ -27,12 +27,13 @@
     
     <a id='setupLink' href='http://rollcall.proto.encorelab.org/login?destination='>Setup</a> <br/>
     <a id='answerLink' href='http://rollcall.proto.encorelab.org/login?destination='>Answer</a> <br/>
-    <a href='/game_screen.html'>Screen</a> <br/>    
+    <a id='screenLink' href='http://rollcall.proto.encorelab.org/login?destination='>Screen</a> <br/>    
     
     <script type='text/javascript'>
         $(document).ready(function(){
            $('#setupLink').attr('href', $('#setupLink').attr('href') + document.location.href.replace('game.html', 'game_setup.html'));
            $('#answerLink').attr('href', $('#answerLink').attr('href') + document.location.href.replace('game.html', 'game_answer.html'));
+           $('#screenLink').attr('href', $('#screenLink').attr('href') + document.location.href.replace('game.html', 'game_screen.html'));
         });
     </script>
     
