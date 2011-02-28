@@ -64,11 +64,11 @@
 					setTimeout(function(){ans.hide('puff', {}, 5000, function() {$(this).remove()})}, 1000)
 				} else if (data.type == 'endgame') {
 					who = data.winner
-					$('#answers').append("<div style='position: absolute; font-weight: bold; font-size: 128px; background-color: #afa; text-align: center' id='ans-"+ansId+"'></div>")
+					$('#answers').append("<div style='position: absolute; font-weight: bold; font-size: 256px; background-color: #afa; text-align: center' id='ans-"+ansId+"'></div>")
 					ans = $('#ans-'+ansId)
-					ans.append('<span style="color: #369; font-size: 50%">WINNER</span><br />')
-					ans.append('<span style="color: #369; font-size: 50%">'+who+'</span><br />')
-					ans.append('<span style="color: #963">'+data.answer+'</span>')
+					ans.append('<span style="color: #369; font-size: 50%; background-color: #afa">WINNER</span><br />')
+					ans.append('<span style="color: #369; font-size: 50%; background-color: #afa">'+who+'</span><br />')
+					ans.append('<span style="color: #963; background-color: #afa">'+data.answer+'</span>')
 					setTimeout(function(){ans.hide('puff', {}, 5000, function() {$(this).remove()})}, 1000)
 				}
 		    })
