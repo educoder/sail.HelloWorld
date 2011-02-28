@@ -36,7 +36,6 @@
 			
 			if(data.type == 'endgame') {
 			    if (data.winner == Sail.Strophe.jid){
-			        rollcall = new Sail.Rollcall.Client('http://rollcall.proto.encorelab.org')
                     token = rollcall.getCurrentToken()
 			        window.location.href = '/sail.HelloWorld/game_setup.html?token='+token;
 			    }
