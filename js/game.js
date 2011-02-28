@@ -11,3 +11,13 @@ $(document).ready(function(){
 	
   })
 })
+
+function parseMsg(msg) {
+  try {
+		data = JSON.parse($(msg).find('body').text())
+		return data
+	} catch (e) {
+		console.log("IGNORING BAD JSON: ", e)
+		return
+	}
+}
