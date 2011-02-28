@@ -38,6 +38,12 @@
         answer = $('#answer').val();
         event = {"type":"setword", "content": answer};
         groupchat.sendJSON(event);
+        
+        alert("Ok, New word has been set");
+        
+        // rollcall = new Sail.Rollcall.Client('http://rollcall.proto.encorelab.org')
+        // token = rollcall.getCurrentToken()
+        // window.location.href = '/sail.HelloWorld/game_answer.html?token='+token;
       })
     }
   </script>
