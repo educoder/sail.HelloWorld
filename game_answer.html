@@ -36,7 +36,9 @@
 			
 			if(data.type == 'endgame') {
 			    if (data.winner == Sail.Strophe.jid){
-			        window.location.href = '/game_setup.html';
+			        rollcall = new Sail.Rollcall.Client('http://rollcall.proto.encorelab.org')
+                    token = rollcall.getCurrentToken()
+			        window.location.href = '/sail.HelloWorld/game_setup.html?token='+token;
 			    }
 			    winner = data.winner.replace("@conference.proto.encorelab.org", "");
 	      		$('#winner').html("<h3>And the winner is "+data.winner+"!</h3>");
