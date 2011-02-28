@@ -40,10 +40,15 @@
         groupchat.sendJSON(event);
       })
     }
+
+	$(document).ready(function() {
+		$('#goto').attr('href', $('#goto').attr('href')+rollcall.getCurrentToken())
+	})
   </script>
   <meta name="csrf-param" content="authenticity_token"/>
 </head>
 <body>
+	<a id="goto" href="game_answer.html?token=">GO TO SETUP</a>
 
     <h1>Congratulations, You win!</h1>
     
