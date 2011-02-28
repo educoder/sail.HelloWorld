@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>S3 Groupchat Example</title>
+  <link href="css/hello.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <!--<script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.0.0-crypto-sha1.js"></script>-->
+  <script src="js/deps/md5.js" type="text/javascript"></script>
+  <script src="js/deps/base64.js" type="text/javascript"></script>
+
+  <script src="js/deps/strophe.js" type="text/javascript"></script>
+
+  <script src="js/deps/jquery-1.4.2.js" type="text/javascript"></script>
+  <script src="js/deps/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+
+  <script src="js/deps/jquery.url.js" type="text/javascript"></script>
+
+  <script src="js/sail.js/sail.rollcall.js" type="text/javascript"></script>
+
+  <script src="js/sail.js/sail.strophe.js" type="text/javascript"></script>
+
+  <script src="js/game.js" type="text/javascript"></script>
+
+  <script type='text/javascript'>
+    var groupchat
+
+    Sail.Strophe.onConnectSuccess = function() {
+      groupchat = Sail.Strophe.joinGroupchat('s3@conference.proto.encorelab.org')
+
+      groupchat.addHandler(function(msg) {
+			data = parseMsg(msg)
+			
+			if (!data){
+			    return;
+			}
+			
+			if(data.type == 'endgame') {
+			    if (data.winner == Sail.Strophe.jid){
+			        window.location.href = '/game_setup.html';
+			    }
+			    winner = data.winner.replace("@conference.proto.encorelab.org", "");
+	      		$('#winner').html("<h3>And the winner is "+data.winner+"!</h3>");
+			}
+	    })
+
+      $('#answerButton').click(function() {
+        answer = $('#answer').val();
+        event = {"type":"answer", "content": answer};
+        groupchat.sendJSON(event);
+        
+        $('#oldAnswers').append(answer+"<br/>");
+      })
+    }
+    
+    
+  </script>
+  <meta name="csrf-param" content="authenticity_token"/>
+</head>
+<body>
+
+    <h1>Type in an answer plz</h1>
+    
+    <form method='GET' onsubmit='return false;'>
+        <input type='text' id='answer' name='answer'>
+        <input type='button' id='answerButton' value='Try Answering'>
+    </form>
+    
+    <div id='oldAnswers' style='width:100%;float:left;'>
+        <h3>You've already tried:</h3>
+        
+    </div>
+    
+    <div id='winner' style='width:100%;float:left;'>
+        
+    </div>
+</body>
+</html>
