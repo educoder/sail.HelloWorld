@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>sail.HelloWorld</title>
+
+    <link href="js/sail.js/css/sail.css" rel="stylesheet" type="text/css" />
+    <link href="css/helloworld.css" rel="stylesheet" type="text/css" />
+    
+    <script src="js/sail.js/sail.js"></script>
+    <script>
+        Sail.load()
+            .then('js/sail.js/rollcall.js')
+            .then('js/helloworld.js')
+            .thenRun(function() { 
+                return Sail.init(HelloWorld);
+            });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Hello World!</h1>
+    </header>
+    
+    <p id="go-on"><a href="should-reattach-here.html">Go on.... &raquo;</a></p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.info {
+  background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5);
+  border: 2px dotted #FFFFFF;
+  margin: 1em;
+  padding: 0.5em;
+}
+
+#go-on,
+#go-on a {
+  text-decoration: none;
+  font-size: 64px;
+  font-weight: bold;
+  text-align: center;
+}
